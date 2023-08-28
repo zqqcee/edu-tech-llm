@@ -37,24 +37,6 @@ const handleTabKey = (event) => {
 .article-card {
     position: relative;
 }
-
-.multiline-subtitle {
-    white-space: normal;
-}
-
-.multiline-content {
-    overflow-y: scroll;
-    white-space: pre-wrap;
-}
-
-.close-dialog-btn {
-    position: fixed;
-    bottom: 10px;
-}
-
-.paragraph-panel {
-    padding-top: 10px;
-}
 </style>
 
 <template>
@@ -63,83 +45,8 @@ const handleTabKey = (event) => {
         <SearchBar />
 
         <div class="w-full h-full bg-blue d-flex justify-space-evenly article-card">
-            <div class="ma-2">
-                <v-card width="800" height="650">
-                    <v-card-item>
-                        <div class="text-h5">我的梦想之旅</div>
-                        <v-card-subtitle class="multiline-subtitle">
-                            {{ articleSubTitle }}
-                        </v-card-subtitle>
-                        <v-textarea clearable counter no-resize rows="19" class="multiline-content"
-                            v-model="articleEditableText" :readonly="textReadonly" @keydown.tab.prevent="handleTabKey"
-                            label="作文正文">
-                        </v-textarea>
-                        <div class="d-flex justify-space-around">
-                            <v-btn color="indigo-darken-3" @click="toggleEditState" size="large" variant="flat"
-                                class="text-none mb-4 edit-btn">
-                                {{ textReadonly ? '编辑作文' : '保存作文' }}
-                                <!-- <v-icon icon="fa:fas fa-edit"></v-icon> -->
-                            </v-btn>
 
-                            <div>
-                                <v-dialog v-model="dialog" width="w-full" fullscreen :scrim="false">
-                                    <template v-slot:activator="{ props }">
-                                        <v-btn v-bind="props" class="text-none mb-4" color="indigo-darken-3" size="large"
-                                            variant="flat">
-                                            逐段解析
-                                        </v-btn>
-                                    </template>
-
-                                    <v-card class="d-flex align-space-around">
-                                        <div class="paragraph-panel">
-                                            <v-expansion-panels>
-                                                <v-expansion-panel title="第一自然段"
-                                                    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima">
-                                                </v-expansion-panel>
-                                            </v-expansion-panels>
-                                        </div>
-
-                                        <div class="paragraph-panel">
-                                            <v-expansion-panels>
-                                                <v-expansion-panel title="第二自然段"
-                                                    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima">
-                                                </v-expansion-panel>
-                                            </v-expansion-panels>
-                                        </div>
-
-
-                                        <div class="paragraph-panel">
-                                            <v-expansion-panels>
-                                                <v-expansion-panel title="第三自然段"
-                                                    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima">
-                                                </v-expansion-panel>
-                                            </v-expansion-panels>
-                                        </div>
-
-                                        <div class="paragraph-panel">
-                                            <v-expansion-panels>
-                                                <v-expansion-panel title="第四自然段"
-                                                    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima">
-                                                </v-expansion-panel>
-                                            </v-expansion-panels>
-                                        </div>
-                                        <v-btn class="close-dialog-btn" block color="gery" size="large"
-                                            @click="dialog = false">关闭</v-btn>
-
-                                    </v-card>
-
-                                </v-dialog>
-                            </div>
-
-                        </div>
-
-
-
-
-
-                    </v-card-item>
-                </v-card>
-            </div>
+            <ArticleDetail />
 
             <div class="ma-2">
                 <v-card width="600" height="650">
