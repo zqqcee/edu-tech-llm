@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../chatgpt-ui-server"
+		},
+		{
+			"path": "../chatgpt-ui-utils"
+		}
+	]
+}
