@@ -67,33 +67,30 @@ const uploadFile = () => {
 }
 </style>
 <template>
-    <div class="ma-2">
-        <v-card width="800" height="650">
-            <v-card-item>
-                <div class="text-h5">我的梦想之旅</div>
-                <v-card-subtitle class="multiline-subtitle">
-                    {{ articleSubTitle }}
-                </v-card-subtitle>
-                <v-textarea clearable counter no-resize rows="19" class="multiline-content" v-model="articleEditableText"
-                    :readonly="textReadonly" @keydown.tab.prevent="handleTabKey" label="作文正文">
-                </v-textarea>
-                <div class="d-flex justify-space-around">
-                    <v-file-input show-size counter multiple label="上传文件" @change="onFileChange"></v-file-input>
-                    <v-btn color="indigo-darken-3" size="large" variant="flat" @click="uploadFile"
-                        class="text-none mb-4 edit-btn">
-                        上传文件
-                    </v-btn>
-                    <v-btn color="indigo-darken-3" @click="toggleEditState" size="large" variant="flat"
-                        class="text-none mb-4 edit-btn">
-                        {{ textReadonly ? '编辑作文' : '保存作文' }}
-                    </v-btn>
+    <v-card width="800" height="650">
+        <v-card-item>
+            <div class="text-h5">我的梦想之旅</div>
+            <v-card-subtitle class="multiline-subtitle">
+                {{ articleSubTitle }}
+            </v-card-subtitle>
+            <v-textarea clearable counter no-resize rows="19" class="multiline-content" v-model="articleEditableText"
+                :readonly="textReadonly" @keydown.tab.prevent="handleTabKey" label="作文正文">
+            </v-textarea>
+            <div class="d-flex justify-space-around">
+                <v-file-input show-size counter multiple label="上传文件" @change="onFileChange"></v-file-input>
+                <v-btn color="indigo-darken-3" size="large" variant="flat" @click="uploadFile"
+                    class="text-none mb-4 edit-btn">
+                    上传文件
+                </v-btn>
+                <v-btn color="indigo-darken-3" @click="toggleEditState" size="large" variant="flat"
+                    class="text-none mb-4 edit-btn">
+                    {{ textReadonly ? '编辑作文' : '保存作文' }}
+                </v-btn>
 
-                    <ArticleDialog />
+                <ArticleDialog />
 
-                </div>
+            </div>
 
-            </v-card-item>
-        </v-card>
-
-    </div>
+        </v-card-item>
+    </v-card>
 </template>
