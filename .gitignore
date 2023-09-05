@@ -11,3 +11,4 @@ dist
 .cache
 tests
 key
+._.DS_Store

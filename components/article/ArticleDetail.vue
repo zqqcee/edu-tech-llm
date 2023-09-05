@@ -30,13 +30,15 @@ const handleTabKey = (event) => {
 const imgFile = ref(null);
 const onFileChange = (e) => {
     imgFile.value = e.target.files;
+
 }
-const uploadFile = () => {
+const uploadFile = async () => {
     if (!imgFile.value) {
         return;
     }
-    console.log(typeof imgFile.value);
-    console.log(imgFile.value);
+    const { data: count } = await useFetch('http://localhost:9001/api/chat/get_texts_ocr');
+    console.log(count);
+    console.log(1);
 }
 
 
