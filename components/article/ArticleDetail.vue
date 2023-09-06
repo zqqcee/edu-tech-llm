@@ -36,8 +36,8 @@ const uploadFile = async () => {
     if (!imgFile.value) {
         return;
     }
-    const { data: count } = await useFetch('http://localhost:9001/api/chat/get_texts_ocr');
-    console.log(count);
+    // const { data: count } = await useFetch('http://localhost:9001/api/chat/get_texts_ocr');
+    // console.log(count);
     console.log(1);
 }
 
