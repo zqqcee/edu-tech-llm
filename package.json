@@ -3,7 +3,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --port 3002",
-    "start": "nuxt start",
+    "start": "nuxt start --port 3002",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -20,6 +20,9 @@
   },
   "dependencies": {
     "@microsoft/fetch-event-source": "^2.0.1",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/proxy": "^2.1.0",
+    "axios": "^1.5.0",
     "copy-to-clipboard": "^3.3.3",
     "highlight.js": "^11.7.0",
     "http-proxy-middleware": "3.0.0-beta.1",

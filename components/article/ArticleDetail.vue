@@ -32,15 +32,34 @@ const onFileChange = (e) => {
     imgFile.value = e.target.files;
 
 }
+
+const fileToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+}
+
 const uploadFile = async () => {
     if (!imgFile.value) {
         return;
     }
-    // const { data: count } = await useFetch('http://localhost:9001/api/chat/get_texts_ocr');
-    // console.log(count);
-    console.log(1);
-}
+    const base64Data = await fileToBase64(imgFile.value[0]);
 
+    console.log("waiting");
+    const data = await useAuthFetch('/api/chat/get_texts_ocr', {
+        method: 'POST',
+        headers: {
+            'accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: { 'image_file': base64Data, 'base64': true }
+    });
+    console.log(data);
+    console.log("end");
+}
 
 
 </script>
